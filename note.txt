@@ -35,6 +35,7 @@ bash 403-bypass.sh -u https://sosvietnam.org/passwd --port
 bash 403-bypass.sh -u https://esan.vn/.user.ini --HTTPmethod
 
 python3 paramspider.py --domain esan.vn --level high --exclude js,css
+python3 paramspider.py --domain http://testphp.vulnweb.com/ -o /home/media/vuln.txt
 
 python3 sublist3r.py -v -d mta.edu.vn
 python3 sublist3r.py -v -e google,yahoo,virustotal -d mta.edu.vn
