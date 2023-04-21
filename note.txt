@@ -27,11 +27,8 @@ nikto -h 10.0.2.15 -port 80
 searchsploit samba 2.3
 
 bash 403-bypass.sh -u https://sosvietnam.org/passwd --header
-
 bash 403-bypass.sh -u https://sosvietnam.org/passwd --protocol
-
 bash 403-bypass.sh -u https://sosvietnam.org/passwd --port
-
 bash 403-bypass.sh -u https://esan.vn/.user.ini --HTTPmethod
 
 python3 paramspider.py --domain esan.vn --level high --exclude js,css
